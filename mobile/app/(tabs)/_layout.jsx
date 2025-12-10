@@ -1,0 +1,12 @@
+import { Stack } from "expo-router";
+import React from 'react'
+
+const TabsLayout = () => {
+  const { isSignedIn } = useAuth();
+
+  if (!isSignedIn) return <Redirect href="/
+  (auth)/sign-in"} />;
+
+  return <Stack />;
+  };
+export default TabsLayout
