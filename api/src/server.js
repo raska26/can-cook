@@ -6,7 +6,7 @@ import { and, eq } from "drizzle-orm";
 
 
 const app = express();  
-const PORT = ENV.PORT || 5001;
+const PORT = ENV.PORT || 3000;
 
 app.use(express.json());
 
