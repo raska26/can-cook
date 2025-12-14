@@ -6,7 +6,7 @@ export default function RootLayout() {
   return (
     
     <ClerkProvider tokenCache={tokenCache} > 
-      <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.background }}>
       <Slot />
       </SafeAreaView>
     <ClerkProvider/>

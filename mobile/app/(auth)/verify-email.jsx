@@ -6,7 +6,7 @@ const VerifyEmailScreen = () => {
     <View>
       <Text>VerifyEmailScreen</Text>
     </View>
-  )
-}
+  );
+};
 
-export default VerifyEmailScreen
+export default VerifyEmailScreen;
