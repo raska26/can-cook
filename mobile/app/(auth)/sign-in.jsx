@@ -20,9 +20,7 @@ import { COLORS } from "../../constants/colors";
 
 const SignInScreen = () => {
   const router = useRouter();
-
   const { signIn, setActive, isLoaded } = useSignIn();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
