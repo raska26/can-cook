@@ -14,4 +14,16 @@ export const MealAPI = {
       return [];
     }
   },
+
+  // lookup full meal details by ID
+  getMealDetailsById: async (id) => {
+    try {
+      const response = await fetch(`${BASE_URL}/lookup.php?i=${encodeURIComponent()}`);
+      const data = await response.json();
+      return data.meals ? data.meals[0] : null;
+    } catch (error) {
+      console.error("Error getting meal details by ID:", error);
+      return null;
+    }
+  },
 };
