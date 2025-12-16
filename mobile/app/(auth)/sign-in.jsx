@@ -67,13 +67,13 @@ const SignInScreen = () => {
           contentContainerStyle={authStyles.scrollContent}
           showsVerticalScrollIndicator={false}
         >
-          <View style={authStyles.imageContainer}>
-            <Image
-              source={require("../../assets/images/i1.png")}
-              style={authStyles.image}
-              contentFit="contain"
-            />
-          </View>
+       <View style={authStyles.imageContainer}>
+  <Image
+    source={require("../../assets/images/i1.png")}
+    style={authStyles.image}
+    resizeMode="contain"
+  />
+</View>
 
           <Text style={authStyles.title}>Welcome Back</Text>
 
