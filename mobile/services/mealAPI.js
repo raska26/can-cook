@@ -18,7 +18,9 @@ export const MealAPI = {
   // lookup full meal details by ID
   getMealDetailsById: async (id) => {
     try {
-      const response = await fetch(`${BASE_URL}/lookup.php?i=${encodeURIComponent()}`);
+      const response = await fetch(
+        `${BASE_URL}/lookup.php?i=${encodeURIComponent(id)}`
+      );
       const data = await response.json();
       return data.meals ? data.meals[0] : null;
     } catch (error) {
@@ -26,4 +28,110 @@ export const MealAPI = {
       return null;
     }
   },
+
+  // lookup a single random meal
+  getRandomMeal: async () => {
+    try {
+      const response = await fetch(`${BASE_URL}/random.php`);
+      const data = await response.json();
+      return data.meals ? data.meals[0] : null;
+    } catch (error) {
+      console.error("Error getting random meal:", error);
+      return null;
+    }
+  },
+
+  // get multiple random meals
+  getMealsByIds: async (count = 6) => {
+    try {
+      const promises = Array(count)
+        .fill()
+        .map(() => MealAPI.getRandomMeal());
+
+      const meals = await Promise.all(promises);
+      return meals.filter((meal) => meal !== null);
+    } catch (error) {
+      console.error("Error getting meals:", error);
+      return [];
+    }
+  },
+
+  // list meal categories
+  getCategories: async () => {
+    try {
+      const response = await fetch(`${BASE_URL}/categories.php`);
+      const data = await response.json();
+      return data.categories || [];
+    } catch (error) {
+      console.error("Error getting categories:", error);
+      return [];
+    }
+  },
+
+  // filter by main ingredient
+  filterMealsByIngredient: async (ingredient) => {
+    try {
+      const response = await fetch(
+        `${BASE_URL}/filter.php?i=${encodeURIComponent(ingredient)}`
+      );
+      const data = await response.json();
+      return data.meals || [];
+    } catch (error) {
+      console.error("Error filtering meals by ingredient:", error);
+      return [];
+    }
+  },
+
+  // filter by category
+  filterMealsByCategory: async (category) => {
+    try {
+      const response = await fetch(
+        `${BASE_URL}/filter.php?c=${encodeURIComponent(category)}`
+      );
+      const data = await response.json();
+      return data.meals || [];
+    } catch (error) {
+      console.error("Error filtering meals by category:", error);
+      return [];
+    }
+  },
+
+  // transform TheMealDB meal data to app format
+  TransformMealData: (meal) => {
+    if (!meal) return null;
+
+    const ingredients = [];
+    for (let i = 1; i <= 20; i++) {
+      const ingredient = meal[`strIngredient${i}`];
+      const measure = meal[`strMeasure${i}`];
+      if (ingredient && ingredient.trim()) {
+        const measureText =
+          measure && measure.trim() ? `${measure.trim()} ` : "";
+        ingredients.push(`${measureText}${ingredient.trim()}`);
+      }
+    }
+
+    const instructions = meal.strInstructions
+      ? meal.strInstructions
+          .split("\r\n")
+          .filter((step) => step.trim() !== "")
+      : [];
+
+    return {
+      id: meal.idMeal,
+      title: meal.strMeal,
+      description: meal.strInstructions
+        ? meal.strInstructions.substring(0, 120) + "..."
+        : "Delicious meal from TheMealDB.",
+      image: meal.strMealThumb,
+      cookTime: "30 mins",
+      servings: 4,
+      category: meal.strCategory || "main course",
+      area: meal.strArea || "Various",
+      ingredients,
+      instructions,
+      originalData: meal,
+    };
+  },
 };
+  
