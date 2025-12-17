@@ -69,7 +69,7 @@ const SignInScreen = () => {
         >
        <View style={authStyles.imageContainer}>
   <Image
-    source={require("../../assets/images/i1.png")}
+    source={require("../../../assets/images/i1.png")}
     style={authStyles.image}
     resizeMode="contain"
   />
