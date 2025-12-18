@@ -64,6 +64,7 @@ const SignUpScreen = () => {
 
   // OTP placeholder
   if (pendingVerification) 
+    // eslint-disable-next-line react/no-unknown-property
     return <vertfyEmail email={email} onBack={() => 
     setPendingVerification(false)} />;
 

@@ -1,7 +1,8 @@
 import { useSignUp } from "@clerk/clerk-expo";
 import { useState } from "react";
-import { View, Text } from 'react-native'
+import { View, Text, Alert, ScrollView, Platform, Image, TextInput, TouchableOpacity } from 'react-native'
 import { authStyles } from "../../assets/styles/auth.styles";
+import { COLORS } from "../../constants/colors";
 const VerifyEmail = ({email, onBack}) => {
   const { isLoaded, signUp } = useSignUp();
   const [code, setCode] = useState("");
@@ -16,6 +17,7 @@ const VerifyEmail = ({email, onBack}) => {
       code})
 
       if(signInAttempt.status === "complete") {
+        // eslint-disable-next-line no-undef
         await setActive({session: signInAttempt.createdSessionId})
       } else {
         Alert.alert("Error", "vertification failed. Please try again.");
@@ -36,6 +38,7 @@ const VerifyEmail = ({email, onBack}) => {
   return (
     <View style={authStyles.container}>
       <keyboardAvoidingView
+        // eslint-disable-next-line react/no-unknown-property
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={authStyles.container}
       >
@@ -71,7 +74,7 @@ const VerifyEmail = ({email, onBack}) => {
           </View>
 
            {/* vertification button  */}
-           <TouchbleOpacity
+           <TouchableOpacity
             style={[authStyles.button, loading && authStyles.
             buttondisabled]}
             onPress={handleVerification}
@@ -81,17 +84,17 @@ const VerifyEmail = ({email, onBack}) => {
               <Text style={authStyles.buttonText}>
                 {loading ? "Verifying" : "vertify email"}
               </Text>
-            </TouchbleOpacity>
+            </TouchableOpacity>
 
             {/* back to sign in  */}
-            <TouchbleOpacity
+            <TouchableOpacity
             style={authStyles.linkcontainerButton}
             onPress={onBack}
             >
               <Text style={authStyles.linktext}>
                  <Text style={authStyles.link}>Back to sign up</Text>
               </Text>
-            </TouchbleOpacity>
+            </TouchableOpacity>
         </View>
         </ScrollView>
       </keyboardAvoidingView>
