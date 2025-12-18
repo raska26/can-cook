@@ -1,155 +1,117 @@
-import { 
-  View, 
-  Text, 
-  Alert, 
-  Platform,
-  KeyboardAvoidingView,
-  ScrollView,
-  TextInput,
-  TouchableOpacity
-} from "react-native";
+import { useSignUp, useAuth } from "@clerk/clerk-expo";
 import { useState } from "react";
-import { useRouter } from "expo-router";
-import { useSignUp } from "@clerk/clerk-expo";
-import { Image } from "expo-image";
-import { Ionicons } from "@expo/vector-icons";
+import {
+  View,
+  Text,
+  Alert,
+  ScrollView,
+  Platform,
+  Image,
+  TextInput,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+} from "react-native";
 
 import { authStyles } from "../../assets/styles/auth.styles";
 import { COLORS } from "../../constants/colors";
 
-const SignUpScreen = () => {
-  const router = useRouter();
+const VerifyEmail = ({ email, onBack }) => {
   const { isLoaded, signUp } = useSignUp();
+  const { setActive } = useAuth();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
+  const [code, setCode] = useState("");
   const [loading, setLoading] = useState(false);
-  const [pendingVerification, setPendingVerification] = useState(false);
 
-  const handleSignUp = async () => {
-    if (!email || !password) {
-      return Alert.alert("Error", "Please fill in all fields");
-    }
-
-    if (password.length < 6) {
-      return Alert.alert("Error", "Password must be at least 6 characters");
-    }
-
+  const handleVerification = async () => {
     if (!isLoaded) return;
 
     setLoading(true);
-
     try {
-      await signUp.create({
-        emailAddress: email,
-        password,
+      const signInAttempt = await signUp.attemptEmailAddressVerification({
+        code,
       });
 
-      await signUp.prepareEmailAddressVerification({
-        strategy: "email_code",
-      });
-
-      setPendingVerification(true);
-    } catch (error) {
+      if (signInAttempt.status === "complete") {
+        // set session aktif setelah verifikasi email berhasil
+        await setActive({
+          session: signInAttempt.createdSessionId,
+        });
+      } else {
+        Alert.alert("Error", "Verification failed. Please try again.");
+        console.error(JSON.stringify(signInAttempt, null, 2));
+      }
+    } catch (err) {
       Alert.alert(
-        "Sign Up Error",
-        error.errors?.[0]?.message || "Failed to create account"
+        "Error",
+        err?.errors?.[0]?.message || "Verification failed"
       );
-      console.error(JSON.stringify(error, null, 2));
+      console.error(JSON.stringify(err, null, 2));
     } finally {
       setLoading(false);
     }
   };
 
-  // OTP placeholder
-  if (pendingVerification) 
-    // eslint-disable-next-line react/no-unknown-property
-    return <vertfyEmail email={email} onBack={() => 
-    setPendingVerification(false)} />;
-
   return (
     <View style={authStyles.container}>
       <KeyboardAvoidingView
+        // mengatur posisi view saat keyboard muncul
         behavior={Platform.OS === "ios" ? "padding" : "height"}
-        keyboardVerticalOffset={Platform.OS === "ios" ? 64 : 0}
-        style={authStyles.formContainer}
+        style={authStyles.container}
       >
         <ScrollView
-          contentContainerStyle={authStyles.scrollContent}
+          contentContainerStyle={authStyles.contentContainer}
           showsVerticalScrollIndicator={false}
         >
-          {/* Logo */}
-          <View style={authStyles.imageContainer}>
+          {/* IMAGE CONTAINER */}
+          <View style={authStyles.logoContainer}>
             <Image
-              source={require("../../assets/images/i2.png")}
+              source={require("../../assets/images/I3.png")}
               style={authStyles.image}
-              contentFit="contain"
+              resizeMode="contain"
             />
           </View>
 
-          <Text style={authStyles.title}>Create Account</Text>
+          {/* TITLE */}
+          <Text style={authStyles.title}>Verify Email</Text>
+          <Text style={authStyles.subtitle}>
+           We&apos;ve sent a verification code to {email}
+           </Text>
 
           <View style={authStyles.formContainer}>
-            {/* Email */}
+            {/* VERIFICATION CODE INPUT */}
             <View style={authStyles.inputContainer}>
               <TextInput
                 style={authStyles.input}
-                placeholder="Enter Email"
+                placeholder="Enter verification code"
                 placeholderTextColor={COLORS.textLight}
-                value={email}
-                onChangeText={setEmail}
-                keyboardType="email-address"
+                value={code}
+                onChangeText={setCode}
+                keyboardType="number-pad"
                 autoCapitalize="none"
               />
             </View>
 
-            {/* Password */}
-            <View style={authStyles.inputContainer}>
-              <TextInput
-                style={authStyles.input}
-                placeholder="Enter Password"
-                placeholderTextColor={COLORS.textLight}
-                value={password}
-                onChangeText={setPassword}
-                secureTextEntry={!showPassword}
-              />
-
-              <TouchableOpacity
-                style={authStyles.eyeIcon}
-                onPress={() => setShowPassword(!showPassword)}
-              >
-                <Ionicons
-                  name={showPassword ? "eye-off" : "eye"}
-                  size={20}
-                  color={COLORS.textLight}
-                />
-              </TouchableOpacity>
-            </View>
-
-            {/* Sign Up Button */}
+            {/* VERIFICATION BUTTON */}
             <TouchableOpacity
               style={[
-                authStyles.authButton,
+                authStyles.button,
                 loading && authStyles.buttonDisabled,
               ]}
-              onPress={handleSignUp}
+              onPress={handleVerification}
               disabled={loading}
               activeOpacity={0.8}
             >
               <Text style={authStyles.buttonText}>
-                {loading ? "Creating account..." : "Sign Up"}
+                {loading ? "Verifying..." : "Verify Email"}
               </Text>
             </TouchableOpacity>
 
-            {/* Sign In Link */}
+            {/* BACK TO SIGN UP */}
             <TouchableOpacity
-              style={authStyles.link}
-              onPress={() => router.back()}
+              style={authStyles.linkContainerButton}
+              onPress={onBack}
             >
-              <Text style={authStyles.linkText}>
-                Already have an account? <text style={authStyles.linkTextBold}>Sign In</text>
-              </Text>
+              <Text style={authStyles.link}>Back to sign up</Text>
             </TouchableOpacity>
           </View>
         </ScrollView>
@@ -158,4 +120,4 @@ const SignUpScreen = () => {
   );
 };
 
-export default SignUpScreen;
+export default VerifyEmail;
