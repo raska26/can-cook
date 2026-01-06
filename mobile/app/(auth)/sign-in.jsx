@@ -20,7 +20,9 @@ import { COLORS } from "../../constants/colors";
 
 const SignInScreen = () => {
   const router = useRouter();
+
   const { signIn, setActive, isLoaded } = useSignIn();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -67,13 +69,13 @@ const SignInScreen = () => {
           contentContainerStyle={authStyles.scrollContent}
           showsVerticalScrollIndicator={false}
         >
-       <View style={authStyles.imageContainer}>
-  <Image
-    source={require("../../../assets/images/i1.png")}
-    style={authStyles.image}
-    resizeMode="contain"
-  />
-</View>
+          <View style={authStyles.imageContainer}>
+            <Image
+              source={require("../../assets/images/chicken.png")}
+              style={authStyles.image}
+              contentFit="contain"
+            />
+          </View>
 
           <Text style={authStyles.title}>Welcome Back</Text>
 

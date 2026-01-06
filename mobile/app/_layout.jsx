@@ -7,10 +7,9 @@ import { COLORS } from "../constants/colors";
 export default function RootLayout() {
   return (
     <ClerkProvider tokenCache={tokenCache}>
-      <SafeAreaView>
-        
+      <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.background }}>
+        <Slot />
       </SafeAreaView>
-      <slot />
-    </ClerkProvider>  
+    </ClerkProvider>
   );
 }
