@@ -66,7 +66,7 @@ const SignUpScreen = () => {
           {/* Image Container */}
           <View style={authStyles.imageContainer}>
             <Image
-              source={require("../../assets/images/chicken.png")}
+              source={require("../../assets/images/sign-in.png")}
               style={authStyles.image}
               contentFit="contain"
             />
