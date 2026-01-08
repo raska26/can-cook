@@ -3,23 +3,19 @@ import { Redirect, Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { COLORS } from "../../constants/colors";
 
-export default function TabsLayout() {
+const TabsLayout = () => {
   const { isSignedIn, isLoaded } = useAuth();
 
-  // ⛔ Tunggu Clerk siap
   if (!isLoaded) return null;
 
-  // 🔐 Redirect kalau belum login
-  if (!isSignedIn) {
-    return <Redirect href="/(auth)/sign-in" />;
-  }
+  if (!isSignedIn) return <Redirect href={"/(auth)/sign-in"} />;
 
   return (
     <Tabs
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: COLORS.primary,
-        tabBarInactiveTintColor: COLORS.textlight,
+        tabBarInactiveTintColor: COLORS.textLight,
         tabBarStyle: {
           backgroundColor: COLORS.white,
           borderTopColor: COLORS.border,
@@ -38,31 +34,24 @@ export default function TabsLayout() {
         name="index"
         options={{
           title: "Recipes",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="restaurant" size={size} color={color} />
-          ),
+          tabBarIcon: ({ color, size }) => <Ionicons name="restaurant" size={size} color={color} />,
         }}
       />
-
       <Tabs.Screen
         name="search"
         options={{
           title: "Search",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="search" size={size} color={color} />
-          ),
+          tabBarIcon: ({ color, size }) => <Ionicons name="search" size={size} color={color} />,
         }}
       />
-
       <Tabs.Screen
         name="favorites"
         options={{
           title: "Favorites",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="heart" size={size} color={color} />
-          ),
+          tabBarIcon: ({ color, size }) => <Ionicons name="heart" size={size} color={color} />,
         }}
       />
     </Tabs>
   );
-}
+};
+export default TabsLayout;

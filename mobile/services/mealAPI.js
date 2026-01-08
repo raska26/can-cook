@@ -4,9 +4,7 @@ export const MealAPI = {
   // search meal by name
   searchMealsByName: async (query) => {
     try {
-      const response = await fetch(
-        `${BASE_URL}/search.php?s=${encodeURIComponent(query)}`
-      );
+      const response = await fetch(`${BASE_URL}/search.php?s=${encodeURIComponent(query)}`);
       const data = await response.json();
       return data.meals || [];
     } catch (error) {
@@ -15,16 +13,14 @@ export const MealAPI = {
     }
   },
 
-  // lookup full meal details by ID
-  getMealDetailsById: async (id) => {
+  // lookup full meal details by id
+  getMealById: async (id) => {
     try {
-      const response = await fetch(
-        `${BASE_URL}/lookup.php?i=${encodeURIComponent(id)}`
-      );
+      const response = await fetch(`${BASE_URL}/lookup.php?i=${id}`);
       const data = await response.json();
       return data.meals ? data.meals[0] : null;
     } catch (error) {
-      console.error("Error getting meal details by ID:", error);
+      console.error("Error getting meal by id:", error);
       return null;
     }
   },
@@ -42,21 +38,20 @@ export const MealAPI = {
   },
 
   // get multiple random meals
-  getMealsByIds: async (count = 6) => {
+  getRandomMeals: async (count = 6) => {
     try {
       const promises = Array(count)
         .fill()
         .map(() => MealAPI.getRandomMeal());
-
       const meals = await Promise.all(promises);
       return meals.filter((meal) => meal !== null);
     } catch (error) {
-      console.error("Error getting meals:", error);
+      console.error("Error getting random meals:", error);
       return [];
     }
   },
 
-  // list meal categories
+  // list all meal categories
   getCategories: async () => {
     try {
       const response = await fetch(`${BASE_URL}/categories.php`);
@@ -69,52 +64,47 @@ export const MealAPI = {
   },
 
   // filter by main ingredient
-  filterMealsByIngredient: async (ingredient) => {
+  filterByIngredient: async (ingredient) => {
     try {
-      const response = await fetch(
-        `${BASE_URL}/filter.php?i=${encodeURIComponent(ingredient)}`
-      );
+      const response = await fetch(`${BASE_URL}/filter.php?i=${encodeURIComponent(ingredient)}`);
       const data = await response.json();
       return data.meals || [];
     } catch (error) {
-      console.error("Error filtering meals by ingredient:", error);
+      console.error("Error filtering by ingredient:", error);
       return [];
     }
   },
 
   // filter by category
-  filterMealsByCategory: async (category) => {
+  filterByCategory: async (category) => {
     try {
-      const response = await fetch(
-        `${BASE_URL}/filter.php?c=${encodeURIComponent(category)}`
-      );
+      const response = await fetch(`${BASE_URL}/filter.php?c=${encodeURIComponent(category)}`);
       const data = await response.json();
       return data.meals || [];
     } catch (error) {
-      console.error("Error filtering meals by category:", error);
+      console.error("Error filtering by category:", error);
       return [];
     }
   },
 
-  // transform TheMealDB meal data to app format
-  TransformMealData: (meal) => {
+  // transform TheMealDB meal data to our app format
+  transformMealData: (meal) => {
     if (!meal) return null;
 
+    // extract ingredients from the meal object
     const ingredients = [];
     for (let i = 1; i <= 20; i++) {
       const ingredient = meal[`strIngredient${i}`];
       const measure = meal[`strMeasure${i}`];
       if (ingredient && ingredient.trim()) {
-        const measureText =
-          measure && measure.trim() ? `${measure.trim()} ` : "";
+        const measureText = measure && measure.trim() ? `${measure.trim()} ` : "";
         ingredients.push(`${measureText}${ingredient.trim()}`);
       }
     }
 
+    // extract instructions
     const instructions = meal.strInstructions
-      ? meal.strInstructions
-          .split("\r\n")
-          .filter((step) => step.trim() !== "")
+      ? meal.strInstructions.split(/\r?\n/).filter((step) => step.trim())
       : [];
 
     return {
@@ -122,16 +112,15 @@ export const MealAPI = {
       title: meal.strMeal,
       description: meal.strInstructions
         ? meal.strInstructions.substring(0, 120) + "..."
-        : "Delicious meal from TheMealDB.",
+        : "Delicious meal from TheMealDB",
       image: meal.strMealThumb,
-      cookTime: "30 mins",
+      cookTime: "30 minutes",
       servings: 4,
-      category: meal.strCategory || "main course",
-      area: meal.strArea || "Various",
+      category: meal.strCategory || "Main Course",
+      area: meal.strArea,
       ingredients,
       instructions,
       originalData: meal,
     };
   },
 };
-  
