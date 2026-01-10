@@ -77,7 +77,7 @@ const SignInScreen = () => {
             />
           </View>
 
-          <Text style={authStyles.title}>Welcome Back</Text>
+          <Text style={authStyles.title}>Find Your Best Food</Text>
 
           {/* FORM CONTAINER */}
           <View style={authStyles.formContainer}>
@@ -132,7 +132,7 @@ const SignInScreen = () => {
               onPress={() => router.push("/(auth)/sign-up")}
             >
               <Text style={authStyles.linkText}>
-                Don&apos;t have an account? <Text style={authStyles.link}>Sign up</Text>
+                Belum punya akun? <Text style={authStyles.link}>Sign up</Text>
               </Text>
             </TouchableOpacity>
           </View>
