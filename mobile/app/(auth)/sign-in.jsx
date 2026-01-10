@@ -1,3 +1,7 @@
+// Sign In Screen
+// Menangani proses login user menggunakan Clerk Authentication
+// Fitur: validasi input, toggle password, loading state
+
 import { useSignIn } from "@clerk/clerk-expo";
 import { useRouter } from "expo-router";
 import { useState } from "react";
