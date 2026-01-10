@@ -9,6 +9,9 @@ import { COLORS } from "../../constants/colors";
 import { Ionicons } from "@expo/vector-icons";
 import VerifyEmail from "./verify-email";
 
+// Screen untuk registrasi user baru
+// Mengatur input email, password, dan proses signup
+
 const SignUpScreen = () => {
   const router = useRouter();
   const { isLoaded, signUp } = useSignUp();
