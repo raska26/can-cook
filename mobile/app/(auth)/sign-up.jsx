@@ -1,13 +1,4 @@
-import {
-  View,
-  Text,
-  Alert,
-  KeyboardAvoidingView,
-  Platform,
-  ScrollView,
-  TextInput,
-  TouchableOpacity,
-} from "react-native";
+import {View,Text, Alert, KeyboardAvoidingView, Platform, ScrollView, TextInput, TouchableOpacity} from "react-native";
 import { useRouter } from "expo-router";
 import { useSignUp } from "@clerk/clerk-expo";
 import { useState } from "react";
