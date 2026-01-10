@@ -20,6 +20,9 @@ const SignUpScreen = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [pendingVerification, setPendingVerification] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
 
   const handleSignUp = async () => {
     if (!email || !password) return Alert.alert("Error", "Please fill in all fields");
