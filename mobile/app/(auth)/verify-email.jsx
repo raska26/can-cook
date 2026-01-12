@@ -90,7 +90,7 @@ const VerifyEmail = ({ email, onBack }) => {
             {/* Back to Sign Up */}
             <TouchableOpacity style={authStyles.linkContainer} onPress={onBack}>
               <Text style={authStyles.linkText}>
-                <Text style={authStyles.link}>Back to Sign Up</Text>
+                <Text style={authStyles.link}>Kembali ke Halaman Pendaftaranr</Text>
               </Text>
             </TouchableOpacity>
           </View>
