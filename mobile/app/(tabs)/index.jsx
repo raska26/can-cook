@@ -102,7 +102,6 @@ const HomeScreen = () => {
         contentContainerStyle={homeStyles.scrollContent}
       >
 
-        
         {/* FEATURED SECTION */}
         {featuredRecipe && (
           <View style={homeStyles.featuredSection}>
