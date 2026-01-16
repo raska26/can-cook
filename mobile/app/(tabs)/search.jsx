@@ -117,6 +117,12 @@ const SearchScreen = () => {
           </Text>
           <Text style={searchStyles.resultsCount}>{recipes.length} found</Text>
         </View>
+
+        {loading ? (
+          <View style={searchStyles.loadingContainer}>
+            <LoadingSpinner message="Searching recipes..." size="small" />
+          </View>
+        ) : (
 };
 
 export default SearchScreen;
