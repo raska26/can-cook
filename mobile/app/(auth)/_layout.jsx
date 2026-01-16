@@ -13,6 +13,8 @@ export default function AuthRoutesLayout() {
       </View>
     );
   }
-
+   if (isSignedIn) {
+    return <Redirect href="/" />;
+  }
 
 }
