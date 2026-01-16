@@ -54,4 +54,11 @@ const SignInScreen = () => {
           contentContainerStyle={authStyles.scrollContent}
           showsVerticalScrollIndicator={false}
         >
+           <View style={authStyles.imageContainer}>
+            <Image
+              source={require("../../assets/images/i1.png")}
+              style={authStyles.image}
+              contentFit="contain"
+            />
+          </View>
 
