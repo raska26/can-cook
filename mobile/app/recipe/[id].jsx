@@ -64,7 +64,7 @@ const RecipeDetailScreen = () => {
     loadRecipeDetail();
   }, [recipeId, userId]);
 
-  const getYouTubeEmbedUrl = (url) => {
+  const getYouTubeEmbedUrl = (url) => { // Menambahkan fungsi konversi URL YouTube menjadi format embed.
     // example url: https://www.youtube.com/watch?v=mTvlmY4vCug
     const videoId = url.split("v=")[1];
     return `https://www.youtube.com/embed/${videoId}`;
