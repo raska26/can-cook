@@ -83,6 +83,37 @@ const SearchScreen = () => {
   }, [debouncedSearchQuery, initialLoading]);
 
   if (initialLoading) return <LoadingSpinner message="Loading recipes..." />;
+
+  return (
+    <View style={searchStyles.container}>
+      <View style={searchStyles.searchSection}>
+        <View style={searchStyles.searchContainer}>
+          <Ionicons
+            name="search"
+            size={20}
+            color={COLORS.textLight}
+            style={searchStyles.searchIcon}
+          />
+          <TextInput
+            style={searchStyles.searchInput}
+            placeholder="Search recipes, ingredients..."
+            placeholderTextColor={COLORS.textLight}
+            value={searchQuery}
+            onChangeText={setSearchQuery}
+            returnKeyType="search"
+          />
+          {searchQuery.length > 0 && (
+            <TouchableOpacity onPress={() => setSearchQuery("")} style={searchStyles.clearButton}>
+              <Ionicons name="close-circle" size={20} color={COLORS.textLight} />
+            </TouchableOpacity>
+          )}
+        </View>
+      </View>
+
+      <View style={searchStyles.resultsSection}>
+        <View style={searchStyles.resultsHeader}>
+          <Text style={searchStyles.resultsTitle}>
+            {searchQuery ? `Results for "${searchQuery}"` : "Popular Recipes"}
 };
 
 export default SearchScreen;
