@@ -37,7 +37,7 @@ export const recipeDetailStyles = StyleSheet.create({
   floatingButton: {
     width: 44,
     height: 44,
-    borderRadius: 22,
+    borderRadius: 224,
     backgroundColor: "rgba(0, 0, 0, 0.3)",
     justifyContent: "center",
     alignItems: "center",
