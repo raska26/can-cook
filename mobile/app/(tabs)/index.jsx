@@ -9,6 +9,8 @@ import { Ionicons } from "@expo/vector-icons";
 import CategoryFilter from "../../components/CategoryFilter";
 import RecipeCard from "../../components/RecipeCard";
 import LoadingSpinner from "../../components/LoadingSpinner";
+import { SafeAreaView } from "react-native-safe-area-context";
+
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -101,14 +103,6 @@ const HomeScreen = () => {
         }
         contentContainerStyle={homeStyles.scrollContent}
       >
-        {/* HEADER / WELCOME SECTION */}
-<View style={homeStyles.header}>
-  <View>
-    <Text style={homeStyles.welcomeText}>Selamat datang</Text>
-    <Text style={homeStyles.username}>Temukan Resep Favoritmu</Text>
-  </View>
-</View>
-
 
 
         {/* FEATURED SECTION */}

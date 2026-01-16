@@ -255,23 +255,32 @@ export const recipeCardStyles = StyleSheet.create({
     fontWeight: "500",
   },
   // ==== HEAEDER STYLES ====
-    header: {
+  safeArea: {
+  backgroundColor: COLORS.background,
+},
+
+header: {
   flexDirection: "row",
   justifyContent: "space-between",
   alignItems: "center",
-  marginBottom: 20,
+  paddingHorizontal: 20,
+  paddingTop: 12,
+  paddingBottom: 16,
 },
 
+
+
 welcomeText: {
-  fontSize: 16,
+  fontSize: 14,
   color: COLORS.textLight,
 },
 
 username: {
-  fontSize: 22,
+  fontSize: 24,
   fontWeight: "700",
   color: COLORS.textDark,
-  marginTop: 4,
+  marginTop: 6,
+  lineHeight: 30,
 },
 
 avatar: {
@@ -279,6 +288,7 @@ avatar: {
   height: 48,
   borderRadius: 24,
 },
+
 // ==== SEARCH BAR STYLES ====
 searchBar: {
   flexDirection: "row",
