@@ -9,32 +9,20 @@ import { Redirect } from "expo-router";
 import { useUser, useAuth } from "@clerk/clerk-expo";
 import { Image } from "expo-image";
 import { Ionicons } from "@expo/vector-icons";
+
 import { COLORS } from "../../constants/colors";
 import { authStyles } from "../../assets/styles/auth.styles";
-
-const ProfileItem = ({ icon, label, value }) => (
-  <View style={{ marginBottom: 16 }}>
-    <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 4 }}>
-      <Ionicons name={icon} size={20} color={COLORS.primary} />
-      <Text style={{ marginLeft: 8, fontSize: 14, color: COLORS.textLight }}>
-        {label}
-      </Text>
-    </View>
-    <Text style={{ fontSize: 16, fontWeight: "500", color: COLORS.text }}>
-      {value}
-    </Text>
-  </View>
-);
 
 const ProfileScreen = () => {
   const { user, isLoaded, isSignedIn } = useUser();
   const { signOut } = useAuth();
 
-   if (!isSignedIn) {
+  if (!isSignedIn) {
     return <Redirect href="/(auth)/sign-in" />;
   }
 
-   if (!isLoaded) {
+  // Loading state
+  if (!isLoaded) {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         <ActivityIndicator size="large" color={COLORS.primary} />
@@ -61,18 +49,18 @@ const ProfileScreen = () => {
 
   return (
     <View style={[authStyles.container, { padding: 24 }]}>
-            {/* Avatar */}
-            <View style={{ alignItems: "center", marginBottom: 24 }}>
-              <Image
-                source={{ uri: user?.imageUrl }}
-                style={{
-                  width: 100,
-                  height: 100,
-                  borderRadius: 50,
-                  backgroundColor: COLORS.border,
-                }}
-              />
-           <Text
+      {/* Avatar */}
+      <View style={{ alignItems: "center", marginBottom: 24 }}>
+        <Image
+          source={{ uri: user?.imageUrl }}
+          style={{
+            width: 100,
+            height: 100,
+            borderRadius: 50,
+            backgroundColor: COLORS.border,
+          }}
+        />
+        <Text
           style={{
             marginTop: 12,
             fontSize: 20,
@@ -83,12 +71,12 @@ const ProfileScreen = () => {
           {user?.fullName || "User"}
         </Text>
 
-         <Text style={{ color: COLORS.textLight }}>
+        <Text style={{ color: COLORS.textLight }}>
           {user?.primaryEmailAddress?.emailAddress}
         </Text>
       </View>
 
-           {/* Info Card */}
+      {/* Info Card */}
       <View
         style={{
           backgroundColor: COLORS.card,
@@ -96,8 +84,8 @@ const ProfileScreen = () => {
           padding: 16,
           marginBottom: 24,
         }}
-      > 
-         <ProfileItem icon="person-outline" label="User ID" value={user?.id} />
+      >
+        <ProfileItem icon="person-outline" label="User ID" value={user?.id} />
         <ProfileItem
           icon="mail-outline"
           label="Email"
@@ -110,7 +98,7 @@ const ProfileScreen = () => {
         />
       </View>
 
-         {/* Logout Button */}
+      {/* Logout Button */}
       <TouchableOpacity
         onPress={handleLogout}
         style={[
@@ -126,6 +114,7 @@ const ProfileScreen = () => {
 
 export default ProfileScreen;
 
+
 const ProfileItem = ({ icon, label, value }) => (
   <View
     style={{
@@ -134,14 +123,10 @@ const ProfileItem = ({ icon, label, value }) => (
       marginBottom: 12,
     }}
   >
-      <Ionicons name={icon} size={20} color={COLORS.primary} />
+    <Ionicons name={icon} size={20} color={COLORS.primary} />
     <View style={{ marginLeft: 12 }}>
       <Text style={{ color: COLORS.textLight, fontSize: 12 }}>{label}</Text>
       <Text style={{ color: COLORS.text }}>{value}</Text>
     </View>
   </View>
 );
-      
-
-
-      
