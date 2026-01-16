@@ -65,7 +65,7 @@ export const recipeDetailStyles = StyleSheet.create({
     letterSpacing: 1,
   },
   recipeTitle: {
-    fontSize: 32,
+    fontSize: 34,
     fontWeight: "bold",
     color: COLORS.white,
     marginBottom: 8,
