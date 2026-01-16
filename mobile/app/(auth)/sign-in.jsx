@@ -22,3 +22,10 @@ const SignInScreen = () => {
      if (!isLoaded) return;
 
     setLoading(true);
+    try {
+      const signInAttempt = await signIn.create({
+        identifier: email,
+        password,
+      });
+      
+
