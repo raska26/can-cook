@@ -3,6 +3,7 @@ import { ClerkProvider } from "@clerk/clerk-expo";
 import { tokenCache } from "@clerk/clerk-expo/token-cache";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { COLORS } from "../constants/colors";
+import { ThemeProvider } from "../context/ThemeContext";
 
 export default function RootLayout() {
   return (
