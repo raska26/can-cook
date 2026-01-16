@@ -54,6 +54,12 @@ const TabsLayout = () => {
           title: "Profile",
           tabBarIcon: ({ color, size }) => <Ionicons name="person-outline" size={size} color={color} />,
         }} />
+        <Tabs.Screen
+        name="settings"
+        options={{
+          href: null, // 
+        }}
+      />  
     </Tabs>
   );
 };
