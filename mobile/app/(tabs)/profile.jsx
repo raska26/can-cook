@@ -58,8 +58,16 @@ const ProfileScreen = () => {
                   backgroundColor: COLORS.border,
                 }}
               />
-            </View>
-          </View>
+           <Text
+          style={{
+            marginTop: 12,
+            fontSize: 20,
+            fontWeight: "600",
+            color: COLORS.text,
+          }}
+        >
+          {user?.fullName || "User"}
+        </Text>
         );
       };
       
