@@ -21,6 +21,31 @@ const SearchScreen = () => {
   const [initialLoading, setInitialLoading] = useState(true);
 
   const debouncedSearchQuery = useDebounce(searchQuery, 300);
+
+  const performSearch = async (query) => {
+    // if no search query
+    if (!query.trim()) {
+      const randomMeals = await MealAPI.getRandomMeals(12);
+      return randomMeals
+        .map((meal) => MealAPI.transformMealData(meal))
+        .filter((meal) => meal !== null);
+    }
+
+    // search by name first, then by ingredient if no results
+
+    const nameResults = await MealAPI.searchMealsByName(query);
+    let results = nameResults;
+
+    if (results.length === 0) {
+      const ingredientResults = await MealAPI.filterByIngredient(query);
+      results = ingredientResults;
+    }
+
+    return results
+      .slice(0, 12)
+      .map((meal) => MealAPI.transformMealData(meal))
+      .filter((meal) => meal !== null);
+  };
 };
 
 export default SearchScreen;
