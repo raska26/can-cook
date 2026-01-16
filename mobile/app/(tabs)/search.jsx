@@ -61,6 +61,26 @@ const SearchScreen = () => {
 
     loadInitialData();
   }, []);
+
+  useEffect(() => {
+    if (initialLoading) return;
+
+    const handleSearch = async () => {
+      setLoading(true);
+
+      try {
+        const results = await performSearch(debouncedSearchQuery);
+        setRecipes(results);
+      } catch (error) {
+        console.error("Error searching:", error);
+        setRecipes([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    handleSearch();
+  }, [debouncedSearchQuery, initialLoading]);
 };
 
 export default SearchScreen;
