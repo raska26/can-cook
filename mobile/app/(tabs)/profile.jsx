@@ -111,7 +111,14 @@ const ProfileScreen = () => {
     borderRadius: 30,
     marginTop: 12,
   }}
->
+  >
+  <Ionicons
+    name="log-out-outline"
+    size={20}
+    color="#fff"
+    style={{ marginRight: 8 }}
+  />
+</TouchableOpacity>
     </View>
   );
 };
