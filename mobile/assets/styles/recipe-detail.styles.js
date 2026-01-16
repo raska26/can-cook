@@ -76,7 +76,7 @@ export const recipeDetailStyles = StyleSheet.create({
   locationRow: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 6,
+    gap: 8,
     marginBottom: 10,
   },
   locationText: {
