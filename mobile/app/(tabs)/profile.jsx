@@ -74,7 +74,15 @@ const ProfileScreen = () => {
         </Text>
       </View>
 
-      
+           {/* Info Card */}
+      <View
+        style={{
+          backgroundColor: COLORS.card,
+          borderRadius: 16,
+          padding: 16,
+          marginBottom: 24,
+        }}
+      ></View>
         );
       };
       
