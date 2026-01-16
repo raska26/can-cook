@@ -9,7 +9,7 @@ export const recipeDetailStyles = StyleSheet.create({
     backgroundColor: COLORS.background,
   },
   headerContainer: {
-    height: height * 0.5,
+    height: height * 0.55,
     position: "relative",
   },
   imageContainer: {
