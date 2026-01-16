@@ -19,3 +19,13 @@ const ProfileScreen = () => {
    if (!isSignedIn) {
     return <Redirect href="/(auth)/sign-in" />;
   }
+
+   if (!isLoaded) {
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <ActivityIndicator size="large" color={COLORS.primary} />
+      </View>
+    );
+  }
+
+      
