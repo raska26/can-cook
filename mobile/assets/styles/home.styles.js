@@ -12,7 +12,7 @@ export const homeStyles = StyleSheet.create({
   scrollContent: {
     paddingBottom: 32,
   },
-  welcomeSection: {
+  welcomeSectionHome: {
     paddingHorizontal: 20,
     paddingTop: 20,
     paddingBottom: 16,
