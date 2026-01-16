@@ -43,3 +43,11 @@ const SignInScreen = () => {
     }
   };
 
+    return (
+    <View style={authStyles.container}>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={authStyles.keyboardView}
+        keyboardVerticalOffset={Platform.OS === "ios" ? 64 : 0}
+      ></KeyboardAvoidingView>
+
