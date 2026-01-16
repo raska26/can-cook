@@ -72,7 +72,7 @@ const SignUpScreen = () => {
           <Text style={authStyles.title}>Create an Account</Text>
 
           <View style={authStyles.formContainer}>
-            {/* Email Input */}
+            {/* email input */}
             <View style={authStyles.inputContainer}>
               <TextInput
                 style={authStyles.textInput}
