@@ -118,6 +118,15 @@ const ProfileScreen = () => {
     color="#fff"
     style={{ marginRight: 8 }}
   />
+  <Text
+    style={{
+      color: "#fff",
+      fontSize: 16,
+      fontWeight: "600",
+    }}
+  >
+    Logout
+  </Text>
 </TouchableOpacity>
     </View>
   );
