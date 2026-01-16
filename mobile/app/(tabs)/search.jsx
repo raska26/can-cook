@@ -19,6 +19,8 @@ const SearchScreen = () => {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [initialLoading, setInitialLoading] = useState(true);
+
+  const debouncedSearchQuery = useDebounce(searchQuery, 300);
 };
 
 export default SearchScreen;
