@@ -89,6 +89,25 @@ const roseGoldTheme = {
   shadow: "#000000",
 };
 
+export const lightColors = {
+  background: "#F6ECFA",
+  card: "#FFFFFF",
+  text: "#1E1E1E",
+  textLight: "#8E8E93",
+  primary: "#7B4AE2",
+  danger: "#E5484D",
+};
+
+export const darkColors = {
+  background: "#121212",
+  card: "#1E1E1E",
+  text: "#FFFFFF",
+  textLight: "#AAAAAA",
+  primary: "#9D7CFF",
+  danger: "#FF6B6B",
+};
+
+
 export const THEMES = {
   coffee: coffeeTheme,
   forest: forestTheme,

@@ -1,69 +1,48 @@
 import { View, Text, TouchableOpacity, Switch } from "react-native";
 import { useRouter } from "expo-router";
-import { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
-
+import { useTheme } from "../../context/ThemeContext";
 import { COLORS } from "../../constants/colors";
 import { authStyles } from "../../assets/styles/auth.styles";
 
 const SettingsScreen = () => {
   const router = useRouter();
-  const [darkMode, setDarkMode] = useState(false);
+  const { isDark, toggleTheme } = useTheme();
 
   return (
     <View style={[authStyles.container, { padding: 24 }]}>
       {/* Header */}
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          marginBottom: 24,
-        }}
-      >
+      <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 24 }}>
         <TouchableOpacity onPress={() => router.back()}>
           <Ionicons name="arrow-back-outline" size={24} color={COLORS.text} />
         </TouchableOpacity>
 
-        <Text
-          style={{
-            fontSize: 20,
-            fontWeight: "600",
-            marginLeft: 12,
-            color: COLORS.text,
-          }}
-        >
+        <Text style={{ fontSize: 20, fontWeight: "600", marginLeft: 12, color: COLORS.text }}>
           Settings
         </Text>
       </View>
 
-      {/* Settings Card */}
-      <View
-        style={{
-          backgroundColor: COLORS.card,
-          borderRadius: 16,
-          padding: 16,
-        }}
-      >
-        {/* Dark Mode */}
+      {/* Card */}
+      <View style={{ backgroundColor: COLORS.card, borderRadius: 16, padding: 16 }}>
         <SettingItem
           icon="moon-outline"
           label="Dark Mode"
           rightComponent={
             <Switch
-              value={darkMode}
-              onValueChange={setDarkMode}
+              value={isDark}
+              onValueChange={toggleTheme}
+              trackColor={{ false: "#D1C4E9", true: COLORS.primary }}
+              thumbColor="#FFFFFF"
             />
           }
         />
 
-        {/* Account */}
         <SettingItem
           icon="person-outline"
           label="Account"
           onPress={() => {}}
         />
 
-        {/* About */}
         <SettingItem
           icon="information-circle-outline"
           label="About App"
@@ -76,7 +55,6 @@ const SettingsScreen = () => {
 
 export default SettingsScreen;
 
-// Komponen kecil biar rapi
 const SettingItem = ({ icon, label, onPress, rightComponent }) => (
   <TouchableOpacity
     activeOpacity={0.7}
@@ -91,13 +69,7 @@ const SettingItem = ({ icon, label, onPress, rightComponent }) => (
   >
     <View style={{ flexDirection: "row", alignItems: "center" }}>
       <Ionicons name={icon} size={20} color={COLORS.primary} />
-      <Text
-        style={{
-          marginLeft: 12,
-          fontSize: 16,
-          color: COLORS.text,
-        }}
-      >
+      <Text style={{ marginLeft: 12, fontSize: 16, color: COLORS.text }}>
         {label}
       </Text>
     </View>
