@@ -7,7 +7,7 @@ const cardWidth = (width - 48) / 2;
 export const homeStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#eb461d"
+    backgroundColor: "#ffe7e0"
   },
   scrollContent: {
     paddingBottom: 32,
