@@ -40,7 +40,7 @@ export const searchStyles = StyleSheet.create({
     padding: 4,
   },
   quickFilters: {
-    marginTop: 20,
+    marginTop: 24,
   },
   filterLabel: {
     fontSize: 16,
