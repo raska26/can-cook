@@ -59,7 +59,7 @@ export const recipeDetailStyles = StyleSheet.create({
   },
   categoryText: {
     color: COLORS.white,
-    fontSize: 12,
+    fontSize: 13,
     fontWeight: "600",
     textTransform: "uppercase",
     letterSpacing: 1,
