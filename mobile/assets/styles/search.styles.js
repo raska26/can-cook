@@ -55,7 +55,7 @@ export const searchStyles = StyleSheet.create({
   quickFilterButton: {
     backgroundColor: COLORS.card,
     paddingHorizontal: 16,
-    paddingVertical: 8,
+    paddingVertical: 10,
     borderRadius: 20,
     borderWidth: 1,
     borderColor: COLORS.border,
