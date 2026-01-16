@@ -69,7 +69,7 @@ const SignUpScreen = () => {
             />
           </View>
 
-          <Text style={authStyles.title}>Create an Account</Text>
+          <Text style={authStyles.title}>Membuat akun</Text>
 
           <View style={authStyles.formContainer}>
             {/* Email Input */}
