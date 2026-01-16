@@ -18,6 +18,7 @@ const RecipeDetailScreen = () => {
   const { id: recipeId } = useLocalSearchParams(); //Menambahkan pengambilan parameter recipeId dari URL menggunakan Expo Router
   const router = useRouter();
 
+    // Menambahkan state untuk mengelola data resep, loading, dan status favorit.
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isSaved, setIsSaved] = useState(false);
