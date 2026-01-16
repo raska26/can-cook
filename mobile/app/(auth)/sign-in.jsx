@@ -1,5 +1,6 @@
 import { useSignIn } from "@clerk/clerk-expo";
 import { useRouter } from "expo-router";
+import { useState } from "react";
 import {
   View,
   Text,
@@ -11,62 +12,66 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+
 import { Image } from "expo-image";
+
 import { authStyles } from "../../assets/styles/auth.styles";
 import { COLORS } from "../../constants/colors";
-import { useState } from "react";
 
 const SignInScreen = () => {
   const router = useRouter();
-    const { signIn, setActive, isLoaded } = useSignIn();
-      const [email, setEmail] = useState("");
-        const [password, setPassword] = useState("");
-        const [showPassword, setShowPassword] = useState(false);
-        const [loading, setLoading] = useState(false);
 
-         const handleSignIn = async () => {
+  const { signIn, setActive, isLoaded } = useSignIn();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleSignIn = async () => {
     if (!email || !password) {
       Alert.alert("Error", "Please fill in all fields");
       return;
     }
-     if (!isLoaded) return;
+
+    if (!isLoaded) return;
 
     setLoading(true);
+
     try {
       const signInAttempt = await signIn.create({
         identifier: email,
         password,
       });
 
-      
       if (signInAttempt.status === "complete") {
         await setActive({ session: signInAttempt.createdSessionId });
-        } else {
+      } else {
         Alert.alert("Error", "Sign in failed. Please try again.");
         console.error(JSON.stringify(signInAttempt, null, 2));
       }
-       } catch (err) {
+    } catch (err) {
       Alert.alert("Error", err.errors?.[0]?.message || "Sign in failed");
       console.error(JSON.stringify(err, null, 2));
-       } finally {
+    } finally {
       setLoading(false);
     }
   };
 
-    return (
+  return (
     <View style={authStyles.container}>
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={authStyles.keyboardView}
         keyboardVerticalOffset={Platform.OS === "ios" ? 64 : 0}
       >
-      <ScrollView
+        <ScrollView
           contentContainerStyle={authStyles.scrollContent}
           showsVerticalScrollIndicator={false}
         >
-           <View style={authStyles.imageContainer}>
+          <View style={authStyles.imageContainer}>
             <Image
-              source={require("../../assets/images/i1.png")}
+              source={require("../../assets/images/sign-in.png")}
               style={authStyles.image}
               contentFit="contain"
             />
@@ -74,7 +79,7 @@ const SignInScreen = () => {
 
           <Text style={authStyles.title}>Welcome Back</Text>
 
-           {/* FORM CONTAINER */}
+          {/* FORM CONTAINER */}
           <View style={authStyles.formContainer}>
             {/* Email Input */}
             <View style={authStyles.inputContainer}>
@@ -89,7 +94,7 @@ const SignInScreen = () => {
               />
             </View>
 
-             {/* PASSWORD INPUT */}
+            {/* PASSWORD INPUT */}
             <View style={authStyles.inputContainer}>
               <TextInput
                 style={authStyles.textInput}
@@ -111,6 +116,7 @@ const SignInScreen = () => {
                 />
               </TouchableOpacity>
             </View>
+
             <TouchableOpacity
               style={[authStyles.authButton, loading && authStyles.buttonDisabled]}
               onPress={handleSignIn}
@@ -120,7 +126,7 @@ const SignInScreen = () => {
               <Text style={authStyles.buttonText}>{loading ? "Signing In..." : "Sign In"}</Text>
             </TouchableOpacity>
 
-             {/* Sign Up Link */}
+            {/* Sign Up Link */}
             <TouchableOpacity
               style={authStyles.linkContainer}
               onPress={() => router.push("/(auth)/sign-up")}
@@ -136,8 +142,3 @@ const SignInScreen = () => {
   );
 };
 export default SignInScreen;
-            
-
-          
-
-
