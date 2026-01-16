@@ -16,3 +16,4 @@ const ProfileScreen = () => {
   const { user, isLoaded, isSignedIn } = useUser();
   const { signOut } = useAuth();
 
+  tambah halaman profil pengguna
