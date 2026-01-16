@@ -23,7 +23,7 @@ const SearchScreen = () => {
   const debouncedSearchQuery = useDebounce(searchQuery, 300);
 
   const performSearch = async (query) => {
-    // if no search query
+    // jika no search query
     if (!query.trim()) {
       const randomMeals = await MealAPI.getRandomMeals(12);
       return randomMeals
@@ -31,7 +31,7 @@ const SearchScreen = () => {
         .filter((meal) => meal !== null);
     }
 
-    // search by name first, then by ingredient if no results
+    // cari berdasarkan name first, lalu ingredient jika no results
 
     const nameResults = await MealAPI.searchMealsByName(query);
     let results = nameResults;
