@@ -62,3 +62,8 @@ const SignInScreen = () => {
             />
           </View>
 
+          <Text style={authStyles.title}>Welcome Back</Text>
+
+          
+
+
