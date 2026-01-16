@@ -103,8 +103,15 @@ const SearchScreen = () => {
             returnKeyType="search"
           />
           {searchQuery.length > 0 && (
-            <TouchableOpacity onPress={() => setSearchQuery("")} style={searchStyles.clearButton}>
-              <Ionicons name="close-circle" size={20} color={COLORS.textLight} />
+            <TouchableOpacity
+              onPress={() => setSearchQuery("")}
+              style={searchStyles.clearButton}
+            >
+              <Ionicons
+                name="close-circle"
+                size={20}
+                color={COLORS.textLight}
+              />
             </TouchableOpacity>
           )}
         </View>
@@ -123,6 +130,19 @@ const SearchScreen = () => {
             <LoadingSpinner message="Searching recipes..." size="small" />
           </View>
         ) : (
+          <FlatList
+            data={recipes}
+            renderItem={({ item }) => <RecipeCard recipe={item} />}
+            keyExtractor={(item) => item.id.toString()}
+            numColumns={2}
+            columnWrapperStyle={searchStyles.row}
+            contentContainerStyle={searchStyles.recipesGrid}
+            showsVerticalScrollIndicator={false}
+            ListEmptyComponent={<NoResultsFound />}
+          />
+        )}
+      </View>
+    </View>
+  );
 };
-
 export default SearchScreen;
