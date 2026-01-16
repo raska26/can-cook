@@ -12,3 +12,4 @@ const SignInScreen = () => {
     const { signIn, setActive, isLoaded } = useSignIn();
       const [email, setEmail] = useState("");
         const [showPassword, setShowPassword] = useState(false);
+        const [loading, setLoading] = useState(false);
