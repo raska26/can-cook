@@ -254,6 +254,7 @@ export const recipeCardStyles = StyleSheet.create({
     marginLeft: 4,
     fontWeight: "500",
   },
+  // ==== HEAEDER STYLES ====
     header: {
   flexDirection: "row",
   justifyContent: "space-between",
