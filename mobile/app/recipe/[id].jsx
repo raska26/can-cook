@@ -42,7 +42,7 @@ const RecipeDetailScreen = () => {
     const loadRecipeDetail = async () => {
       setLoading(true);
       try {
-        const mealData = await MealAPI.getMealById(recipeId);
+        const mealData = await MealAPI.getMealById(recipeId); // Mengambil detail resep berdasarkan ID menggunakan MealAPI.
         if (mealData) {
           const transformedRecipe = MealAPI.transformMealData(mealData);
 
