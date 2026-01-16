@@ -133,7 +133,14 @@ const ProfileItem = ({ icon, label, value }) => (
       alignItems: "center",
       marginBottom: 12,
     }}
-  ></View>
+  >
+      <Ionicons name={icon} size={20} color={COLORS.primary} />
+    <View style={{ marginLeft: 12 }}>
+      <Text style={{ color: COLORS.textLight, fontSize: 12 }}>{label}</Text>
+      <Text style={{ color: COLORS.text }}>{value}</Text>
+    </View>
+  </View>
+);
       
 
 
