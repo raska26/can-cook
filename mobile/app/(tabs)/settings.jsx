@@ -4,6 +4,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useTheme } from "../../context/Theme";
 import { authStyles } from "../../assets/styles/auth.styles";
 
+//Ini adalah halaman Settings.
 const SettingsScreen = () => {
   const router = useRouter();
   const { isDark, toggleTheme, theme } = useTheme();
