@@ -6,3 +6,6 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 
 import { Image } from "expo-image";
+
+const SignInScreen = () => {
+  const router = useRouter();
