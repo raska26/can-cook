@@ -30,7 +30,7 @@ const RecipeDetailScreen = () => {
   useEffect(() => {
     const checkIfSaved = async () => {
       try {
-        const response = await fetch(`${API_URL}/favorites/${userId}`);
+        const response = await fetch(`${API_URL}/favorites/${userId}`); // Menambahkan fitur pengecekan apakah resep sudah disimpan ke favorit pengguna.
         const favorites = await response.json();
         const isRecipeSaved = favorites.some((fav) => fav.recipeId === parseInt(recipeId));
         setIsSaved(isRecipeSaved);
