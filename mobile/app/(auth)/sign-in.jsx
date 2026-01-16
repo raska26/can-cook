@@ -38,5 +38,8 @@ const SignInScreen = () => {
        } catch (err) {
       Alert.alert("Error", err.errors?.[0]?.message || "Sign in failed");
       console.error(JSON.stringify(err, null, 2));
-      
+       } finally {
+      setLoading(false);
+    }
+  };
 
