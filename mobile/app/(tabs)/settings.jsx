@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity, Switch } from "react-native";
-import { useRouter } from "expo-router";
+import { useRouter } from "expo-router"; //Untuk navigasi (kembali ke halaman sebelumnya).
 import { Ionicons } from "@expo/vector-icons";
 import { useTheme } from "../../context/Theme";
 import { authStyles } from "../../assets/styles/auth.styles";
