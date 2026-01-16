@@ -1,9 +1,9 @@
-import  { View, Text } from "react-native";
-const searchScreen = () => {
-    return (
-        <View>
-            <Text>Search</Text>
-        </View>
-    );
-}
-export default searchScreen;
+import { View, Text } from "react-native";
+const search = () => {
+  return (
+    <View>
+      <Text>search</Text>
+    </View>
+  );
+};
+export default search;
