@@ -30,7 +30,7 @@ const RecipeDetailScreen = () => {
   useEffect(() => {
     const checkIfSaved = async () => {
       try {
-        const response = await fetch(`${API_URL}/favorites/${userId}`);
+        const response = await fetch(`${API_URL}/favorites/${userId}`); // Menambahkan fitur pengecekan apakah resep sudah disimpan ke favorit pengguna.
         const favorites = await response.json();
         const isRecipeSaved = favorites.some((fav) => fav.recipeId === parseInt(recipeId));
         setIsSaved(isRecipeSaved);
@@ -64,7 +64,7 @@ const RecipeDetailScreen = () => {
     loadRecipeDetail();
   }, [recipeId, userId]);
 
-  const getYouTubeEmbedUrl = (url) => {
+  const getYouTubeEmbedUrl = (url) => { // Menambahkan fungsi konversi URL YouTube menjadi format embed.
     // example url: https://www.youtube.com/watch?v=mTvlmY4vCug
     const videoId = url.split("v=")[1];
     return `https://www.youtube.com/embed/${videoId}`;
@@ -110,7 +110,7 @@ const RecipeDetailScreen = () => {
     }
   };
 
-  if (loading) return <LoadingSpinner message="Loading recipe details..." />;
+  if (loading) return <LoadingSpinner message="Loading recipe details..." />; //Menampilkan indikator loading saat data resep sedang dimuat.
 
   return (
     <View style={recipeDetailStyles.container}>
@@ -173,11 +173,11 @@ const RecipeDetailScreen = () => {
           {/* QUICK STATS */}
           <View style={recipeDetailStyles.statsContainer}>
             <View style={recipeDetailStyles.statCard}>
-              <LinearGradient
+              <LinearGradient //Menambahkan elemen visual seperti gradient dan ikon untuk meningkatkan UI/UX.
                 colors={["#FF6B6B", "#FF8E53"]}
                 style={recipeDetailStyles.statIconContainer}
-              >
-                <Ionicons name="time" size={20} color={COLORS.white} />
+              > 
+                <Ionicons name="time" size={20} color={COLORS.white} /> 
               </LinearGradient>
               <Text style={recipeDetailStyles.statValue}>{recipe.cookTime}</Text>
               <Text style={recipeDetailStyles.statLabel}>Prep Time</Text>

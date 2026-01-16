@@ -1,5 +1,5 @@
 import { View, Text, Alert, ScrollView, TouchableOpacity, FlatList } from "react-native";
-import { useClerk, useUser } from "@clerk/clerk-expo";
+import { useClerk, useUser } from "@clerk/clerk-expo"; // Mengintegrasikan Clerk untuk mendapatkan data pengguna dan fitur logout.
 import { useEffect, useState } from "react";
 import { API_URL } from "../../constants/api";
 import { favoritesStyles } from "../../assets/styles/favorites.styles";
@@ -11,15 +11,15 @@ import LoadingSpinner from "../../components/LoadingSpinner";
 
 const FavoritesScreen = () => {
   const { signOut } = useClerk();
-  const { user } = useUser();
-  const [favoriteRecipes, setFavoriteRecipes] = useState([]);
+  const { user } = useUser(); // Mengambil informasi pengguna yang sedang login untuk kebutuhan data favorit.
+  const [favoriteRecipes, setFavoriteRecipes] = useState([]); // Menambahkan state untuk menyimpan daftar resep favorit dan status loading.
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadFavorites = async () => {
       try {
-        const response = await fetch(`${API_URL}/favorites/${user.id}`);
-        if (!response.ok) throw new Error("Failed to fetch favorites");
+        const response = await fetch(`${API_URL}/favorites/${user.id}`); // Mengambil daftar resep favorit berdasarkan ID pengguna dari API.
+        if (!response.ok) throw new Error("Failed to fetch favorites"); // Menambahkan validasi respon API untuk menangani kegagalan pengambilan data.
 
         const favorites = await response.json();
 
