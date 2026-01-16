@@ -19,3 +19,6 @@ const SignInScreen = () => {
       Alert.alert("Error", "Please fill in all fields");
       return;
     }
+     if (!isLoaded) return;
+
+    setLoading(true);
