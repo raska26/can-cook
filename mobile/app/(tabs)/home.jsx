@@ -45,6 +45,7 @@ const HomeScreen = () => {
             tintColor={COLORS.primary}
           />
         }
+        
       >
         <FeaturedRecipe
           recipe={featuredRecipe}
@@ -73,5 +74,6 @@ const HomeScreen = () => {
     </View>
   );
 };
+
 
 export default HomeScreen;

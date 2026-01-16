@@ -185,6 +185,7 @@ export const homeStyles = StyleSheet.create({
   selectedCategoryText: {
     color: COLORS.white,
   },
+  
 });
 
 export const recipeCardStyles = StyleSheet.create({
@@ -253,4 +254,46 @@ export const recipeCardStyles = StyleSheet.create({
     marginLeft: 4,
     fontWeight: "500",
   },
+    header: {
+  flexDirection: "row",
+  justifyContent: "space-between",
+  alignItems: "center",
+  marginBottom: 20,
+},
+
+welcomeText: {
+  fontSize: 16,
+  color: COLORS.textLight,
+},
+
+username: {
+  fontSize: 22,
+  fontWeight: "700",
+  color: COLORS.textDark,
+  marginTop: 4,
+},
+
+avatar: {
+  width: 48,
+  height: 48,
+  borderRadius: 24,
+},
+
+searchBar: {
+  flexDirection: "row",
+  alignItems: "center",
+  backgroundColor: COLORS.white,
+  paddingHorizontal: 16,
+  paddingVertical: 14,
+  borderRadius: 14,
+  marginBottom: 24,
+  elevation: 2,
+},
+
+searchPlaceholder: {
+  marginLeft: 10,
+  color: COLORS.textLight,
+  fontSize: 14,
+},
+
 });
