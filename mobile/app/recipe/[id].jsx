@@ -173,11 +173,11 @@ const RecipeDetailScreen = () => {
           {/* QUICK STATS */}
           <View style={recipeDetailStyles.statsContainer}>
             <View style={recipeDetailStyles.statCard}>
-              <LinearGradient
+              <LinearGradient //Menambahkan elemen visual seperti gradient dan ikon untuk meningkatkan UI/UX.
                 colors={["#FF6B6B", "#FF8E53"]}
                 style={recipeDetailStyles.statIconContainer}
-              >
-                <Ionicons name="time" size={20} color={COLORS.white} />
+              > 
+                <Ionicons name="time" size={20} color={COLORS.white} /> 
               </LinearGradient>
               <Text style={recipeDetailStyles.statValue}>{recipe.cookTime}</Text>
               <Text style={recipeDetailStyles.statLabel}>Prep Time</Text>
