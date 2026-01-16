@@ -12,6 +12,20 @@ import { Ionicons } from "@expo/vector-icons";
 import { COLORS } from "../../constants/colors";
 import { authStyles } from "../../assets/styles/auth.styles";
 
+const ProfileItem = ({ icon, label, value }) => (
+  <View style={{ marginBottom: 16 }}>
+    <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 4 }}>
+      <Ionicons name={icon} size={20} color={COLORS.primary} />
+      <Text style={{ marginLeft: 8, fontSize: 14, color: COLORS.textLight }}>
+        {label}
+      </Text>
+    </View>
+    <Text style={{ fontSize: 16, fontWeight: "500", color: COLORS.text }}>
+      {value}
+    </Text>
+  </View>
+);
+
 const ProfileScreen = () => {
   const { user, isLoaded, isSignedIn } = useUser();
   const { signOut } = useAuth();
@@ -94,6 +108,8 @@ const ProfileScreen = () => {
           label="Bergabung"
           value={new Date(user?.createdAt).toLocaleDateString()}
         />
+      </View>
+
          {/* Logout Button */}
       <TouchableOpacity
         onPress={handleLogout}
