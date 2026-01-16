@@ -79,7 +79,7 @@ const SignInScreen = () => {
                 autoCapitalize="none"
               />
             </View>
-            
+
              {/* PASSWORD INPUT */}
             <View style={authStyles.inputContainer}>
               <TextInput
@@ -91,6 +91,17 @@ const SignInScreen = () => {
                 secureTextEntry={!showPassword}
                 autoCapitalize="none"
               />
+              <TouchableOpacity
+                style={authStyles.eyeButton}
+                onPress={() => setShowPassword(!showPassword)}
+              >
+                <Ionicons
+                  name={showPassword ? "eye-outline" : "eye-off-outline"}
+                  size={20}
+                  color={COLORS.textLight}
+                />
+              </TouchableOpacity>
+            </View>
 
           
 
