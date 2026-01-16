@@ -27,5 +27,9 @@ const SignInScreen = () => {
         identifier: email,
         password,
       });
+
+      
+      if (signInAttempt.status === "complete") {
+        await setActive({ session: signInAttempt.createdSessionId });
       
 
