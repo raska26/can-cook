@@ -7,7 +7,7 @@ import {
   FlatList,
 } from "react-native";
 import { MealAPI } from "../../services/mealAPI";
-import { useDebounce } from "../../hooks/useDebounce";
+import { useDebounce } from "../../hooks/useDebounc";
 import { searchStyles } from "../../assets/styles/search.styles";
 import { COLORS } from "../../constants/colors";
 import { Ionicons } from "@expo/vector-icons";
