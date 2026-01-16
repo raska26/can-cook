@@ -98,6 +98,32 @@ const ProfileScreen = () => {
         />
       </View>
 
+        
+        <TouchableOpacity
+  activeOpacity={0.8}
+  style={{
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: COLORS.primary,
+    paddingVertical: 14,
+    borderRadius: 30,
+    marginBottom: 12,
+  }}
+  onPress={() => router.push("/settings")}
+>
+  <Ionicons
+    name="create-outline"
+    size={20}
+    color="#fff"
+    style={{ marginRight: 8 }}
+  />
+  <Text style={{ color: "#fff", fontSize: 16, fontWeight: "600" }}>
+    Edit Profile
+  </Text>
+</TouchableOpacity>
+
+
       {/* Logout Button */}
         <TouchableOpacity
   onPress={handleLogout}
