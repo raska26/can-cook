@@ -79,7 +79,7 @@ const HomeScreen = () => {
 
   const onRefresh = async () => {
     setRefreshing(true);
-    // await sleep(2000);
+    //await sleep (2000);
     await loadData();
     setRefreshing(false);
   };
