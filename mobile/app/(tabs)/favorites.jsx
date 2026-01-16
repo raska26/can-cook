@@ -18,7 +18,7 @@ const FavoritesScreen = () => {
   useEffect(() => {
     const loadFavorites = async () => {
       try {
-        const response = await fetch(`${API_URL}/favorites/${user.id}`);
+        const response = await fetch(`${API_URL}/favorites/${user.id}`); // Mengambil daftar resep favorit berdasarkan ID pengguna dari API.
         if (!response.ok) throw new Error("Failed to fetch favorites");
 
         const favorites = await response.json();
