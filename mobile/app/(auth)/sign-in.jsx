@@ -14,11 +14,13 @@ import { Ionicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
 import { authStyles } from "../../assets/styles/auth.styles";
 import { COLORS } from "../../constants/colors";
+import { useState } from "react";
 
 const SignInScreen = () => {
   const router = useRouter();
     const { signIn, setActive, isLoaded } = useSignIn();
       const [email, setEmail] = useState("");
+        const [password, setPassword] = useState("");
         const [showPassword, setShowPassword] = useState(false);
         const [loading, setLoading] = useState(false);
 
