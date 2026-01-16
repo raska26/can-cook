@@ -279,7 +279,7 @@ avatar: {
   height: 48,
   borderRadius: 24,
 },
-
+// ==== SEARCH BAR STYLES ====
 searchBar: {
   flexDirection: "row",
   alignItems: "center",
