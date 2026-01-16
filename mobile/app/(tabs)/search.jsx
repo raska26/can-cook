@@ -46,6 +46,21 @@ const SearchScreen = () => {
       .map((meal) => MealAPI.transformMealData(meal))
       .filter((meal) => meal !== null);
   };
+
+  useEffect(() => {
+    const loadInitialData = async () => {
+      try {
+        const results = await performSearch("");
+        setRecipes(results);
+      } catch (error) {
+        console.error("Error loading initial data:", error);
+      } finally {
+        setInitialLoading(false);
+      }
+    };
+
+    loadInitialData();
+  }, []);
 };
 
 export default SearchScreen;
