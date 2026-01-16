@@ -12,7 +12,7 @@ import LoadingSpinner from "../../components/LoadingSpinner";
 const FavoritesScreen = () => {
   const { signOut } = useClerk();
   const { user } = useUser(); // Mengambil informasi pengguna yang sedang login untuk kebutuhan data favorit.
-  const [favoriteRecipes, setFavoriteRecipes] = useState([]);
+  const [favoriteRecipes, setFavoriteRecipes] = useState([]); // Menambahkan state untuk menyimpan daftar resep favorit dan status loading.
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
