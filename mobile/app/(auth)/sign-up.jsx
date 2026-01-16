@@ -69,7 +69,7 @@ const SignUpScreen = () => {
             />
           </View>
 
-          <Text style={authStyles.title}>Membuat akun</Text>
+          <Text style={authStyles.title}>Create an Account</Text>
 
           <View style={authStyles.formContainer}>
             {/* Email Input */}
@@ -123,7 +123,7 @@ const SignUpScreen = () => {
             {/* Sign In Link */}
             <TouchableOpacity style={authStyles.linkContainer} onPress={() => router.back()}>
               <Text style={authStyles.linkText}>
-                Sudah punya akun? <Text style={authStyles.link}>Sign In</Text>
+               Already have an account? <Text style={authStyles.link}>Sign In</Text>
               </Text>
             </TouchableOpacity>
           </View>
