@@ -13,3 +13,9 @@ import { COLORS } from "../../constants/colors";
 import { Ionicons } from "@expo/vector-icons";
 import RecipeCard from "../../components/RecipeCard";
 import LoadingSpinner from "../../components/LoadingSpinner";
+
+const SearchScreen = () => {
+  return null;
+};
+
+export default SearchScreen;
