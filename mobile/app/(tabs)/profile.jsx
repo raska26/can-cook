@@ -125,6 +125,15 @@ const ProfileScreen = () => {
 };
 
 export default ProfileScreen;
+
+const ProfileItem = ({ icon, label, value }) => (
+  <View
+    style={{
+      flexDirection: "row",
+      alignItems: "center",
+      marginBottom: 12,
+    }}
+  ></View>
       
 
 
