@@ -114,6 +114,9 @@ const SearchScreen = () => {
         <View style={searchStyles.resultsHeader}>
           <Text style={searchStyles.resultsTitle}>
             {searchQuery ? `Results for "${searchQuery}"` : "Popular Recipes"}
+          </Text>
+          <Text style={searchStyles.resultsCount}>{recipes.length} found</Text>
+        </View>
 };
 
 export default SearchScreen;
