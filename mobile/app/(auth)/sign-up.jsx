@@ -1,4 +1,13 @@
-import {View,Text, Alert, KeyboardAvoidingView, Platform, ScrollView, TextInput, TouchableOpacity} from "react-native";
+import {
+  View,
+  Text,
+  Alert,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  TextInput,
+  TouchableOpacity,
+} from "react-native";
 import { useRouter } from "expo-router";
 import { useSignUp } from "@clerk/clerk-expo";
 import { useState } from "react";
@@ -9,9 +18,6 @@ import { COLORS } from "../../constants/colors";
 import { Ionicons } from "@expo/vector-icons";
 import VerifyEmail from "./verify-email";
 
-// Screen untuk registrasi user baru
-// Mengatur input email, password, dan proses signup
-
 const SignUpScreen = () => {
   const router = useRouter();
   const { isLoaded, signUp } = useSignUp();
@@ -20,9 +26,6 @@ const SignUpScreen = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [pendingVerification, setPendingVerification] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
-
 
   const handleSignUp = async () => {
     if (!email || !password) return Alert.alert("Error", "Please fill in all fields");
@@ -63,16 +66,16 @@ const SignUpScreen = () => {
           {/* Image Container */}
           <View style={authStyles.imageContainer}>
             <Image
-              source={require("../../assets/images/sign-in.png")}
+              source={require("../../assets/images/i2.png")}
               style={authStyles.image}
               contentFit="contain"
             />
           </View>
 
-          <Text style={authStyles.title}>Create an Account</Text>
+          <Text style={authStyles.title}>Create Account</Text>
 
           <View style={authStyles.formContainer}>
-            {/* email input */}
+            {/* Email Input */}
             <View style={authStyles.inputContainer}>
               <TextInput
                 style={authStyles.textInput}
@@ -123,7 +126,7 @@ const SignUpScreen = () => {
             {/* Sign In Link */}
             <TouchableOpacity style={authStyles.linkContainer} onPress={() => router.back()}>
               <Text style={authStyles.linkText}>
-               Already have an account? <Text style={authStyles.link}>Sign In</Text>
+                Already have an account? <Text style={authStyles.link}>Sign In</Text>
               </Text>
             </TouchableOpacity>
           </View>
