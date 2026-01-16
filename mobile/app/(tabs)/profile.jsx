@@ -82,7 +82,13 @@ const ProfileScreen = () => {
           padding: 16,
           marginBottom: 24,
         }}
-      ></View>
+      > 
+         <ProfileItem icon="person-outline" label="User ID" value={user?.id} />
+        <ProfileItem
+          icon="mail-outline"
+          label="Email"
+          value={user?.primaryEmailAddress?.emailAddress}
+        />
         );
       };
       
