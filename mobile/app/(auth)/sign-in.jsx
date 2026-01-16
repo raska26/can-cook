@@ -79,6 +79,18 @@ const SignInScreen = () => {
                 autoCapitalize="none"
               />
             </View>
+            
+             {/* PASSWORD INPUT */}
+            <View style={authStyles.inputContainer}>
+              <TextInput
+                style={authStyles.textInput}
+                placeholder="Enter password"
+                placeholderTextColor={COLORS.textLight}
+                value={password}
+                onChangeText={setPassword}
+                secureTextEntry={!showPassword}
+                autoCapitalize="none"
+              />
 
           
 
