@@ -20,7 +20,7 @@ export const homeStyles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
   },
-  welcomeText: {
+   subtitleText: {
     fontSize: 32,
     fontWeight: "800",
     color: COLORS.textLight,
