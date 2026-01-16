@@ -101,26 +101,15 @@ const HomeScreen = () => {
         }
         contentContainerStyle={homeStyles.scrollContent}
       >
-{/* HEADER / WELCOME SECTION */}
+        {/* HEADER / WELCOME SECTION */}
 <View style={homeStyles.header}>
   <View>
-    <Text style={homeStyles.welcomeText}>Welcome 👋</Text>
-    <Text style={homeStyles.username}>Let’s Cook Today</Text>
+    <Text style={homeStyles.welcomeText}>Selamat datang</Text>
+    <Text style={homeStyles.username}>Temukan Resep Favoritmu</Text>
   </View>
-
-  <Image
-    source={{ uri: "https://i.pravatar.cc/100" }}
-    style={homeStyles.avatar}
-  />
 </View>
 
-    {/* SEARCH BAR */}
-    <TouchableOpacity style={homeStyles.searchBar} activeOpacity={0.8}>
-      <Ionicons name="search-outline" size={20} color={COLORS.textLight} />
-      <Text style={homeStyles.searchPlaceholder}>
-        Search recipes, ingredients...
-      </Text>
-    </TouchableOpacity>
+
 
         {/* FEATURED SECTION */}
         {featuredRecipe && (
@@ -207,3 +196,4 @@ const HomeScreen = () => {
   );
 };
 export default HomeScreen;
+
