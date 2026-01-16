@@ -101,11 +101,15 @@ const ProfileScreen = () => {
           authStyles.authButton,
           { backgroundColor: COLORS.danger },
         ]}
-      ></TouchableOpacity>
-        );
-      };
+      >
+        <Text style={authStyles.buttonText}>Logout</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+export default ProfileScreen;
       
-      export default ProfileScreen;
 
 
       
