@@ -110,7 +110,7 @@ const RecipeDetailScreen = () => {
     }
   };
 
-  if (loading) return <LoadingSpinner message="Loading recipe details..." />;
+  if (loading) return <LoadingSpinner message="Loading recipe details..." />; //Menampilkan indikator loading saat data resep sedang dimuat.
 
   return (
     <View style={recipeDetailStyles.container}>
