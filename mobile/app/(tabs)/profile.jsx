@@ -89,6 +89,11 @@ const ProfileScreen = () => {
           label="Email"
           value={user?.primaryEmailAddress?.emailAddress}
         />
+        <ProfileItem
+          icon="calendar-outline"
+          label="Bergabung"
+          value={new Date(user?.createdAt).toLocaleDateString()}
+        />
         );
       };
       
