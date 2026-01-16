@@ -68,6 +68,13 @@ const ProfileScreen = () => {
         >
           {user?.fullName || "User"}
         </Text>
+
+         <Text style={{ color: COLORS.textLight }}>
+          {user?.primaryEmailAddress?.emailAddress}
+        </Text>
+      </View>
+
+      
         );
       };
       
