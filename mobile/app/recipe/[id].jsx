@@ -23,7 +23,7 @@ const RecipeDetailScreen = () => {
   const [isSaved, setIsSaved] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
 
-  const { user } = useUser();
+  const { user } = useUser(); // Mengintegrasikan autentikasi pengguna menggunakan Clerk untuk mendapatkan userId.
   const userId = user?.id;
 
   useEffect(() => {
