@@ -93,7 +93,7 @@ export const recipeDetailStyles = StyleSheet.create({
     borderTopRightRadius: 30,
     marginTop: -30,
     paddingTop: 30,
-    paddingHorizontal: 16,
+    paddingHorizontal: 20,
     paddingBottom: 40,
   },
   statsContainer: {
