@@ -1,5 +1,5 @@
 import { View, Text, Alert, ScrollView, TouchableOpacity, FlatList } from "react-native";
-import { useClerk, useUser } from "@clerk/clerk-expo";
+import { useClerk, useUser } from "@clerk/clerk-expo"; // Mengintegrasikan Clerk untuk mendapatkan data pengguna dan fitur logout.
 import { useEffect, useState } from "react";
 import { API_URL } from "../../constants/api";
 import { favoritesStyles } from "../../assets/styles/favorites.styles";
