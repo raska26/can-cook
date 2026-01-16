@@ -99,15 +99,19 @@ const ProfileScreen = () => {
       </View>
 
       {/* Logout Button */}
-      <TouchableOpacity
-        onPress={handleLogout}
-        style={[
-          authStyles.authButton,
-          { backgroundColor: COLORS.danger },
-        ]}
-      >
-        <Text style={authStyles.buttonText}>Logout</Text>
-      </TouchableOpacity>
+        <TouchableOpacity
+  onPress={handleLogout}
+  activeOpacity={0.8}
+  style={{
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: COLORS.danger,
+    paddingVertical: 14,
+    borderRadius: 30,
+    marginTop: 12,
+  }}
+>
     </View>
   );
 };
