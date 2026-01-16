@@ -15,7 +15,10 @@ import RecipeCard from "../../components/RecipeCard";
 import LoadingSpinner from "../../components/LoadingSpinner";
 
 const SearchScreen = () => {
-  return null;
+  const [searchQuery, setSearchQuery] = useState("");
+  const [recipes, setRecipes] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [initialLoading, setInitialLoading] = useState(true);
 };
 
 export default SearchScreen;
