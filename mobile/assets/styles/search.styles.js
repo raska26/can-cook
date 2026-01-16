@@ -33,7 +33,7 @@ export const searchStyles = StyleSheet.create({
   },
   searchInput: {
     flex: 1,
-    fontSize: 16,
+    fontSize: 17,
     color: COLORS.text,
   },
   clearButton: {
