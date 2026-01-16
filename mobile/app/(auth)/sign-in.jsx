@@ -1,6 +1,7 @@
 import { useSignIn } from "@clerk/clerk-expo";
 import { useRouter } from "expo-router";
 import {
+  ScrollView,
   View
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
@@ -63,6 +64,21 @@ const SignInScreen = () => {
           </View>
 
           <Text style={authStyles.title}>Welcome Back</Text>
+
+           {/* FORM CONTAINER */}
+          <View style={authStyles.formContainer}>
+            {/* Email Input */}
+            <View style={authStyles.inputContainer}>
+              <TextInput
+                style={authStyles.textInput}
+                placeholder="Enter email"
+                placeholderTextColor={COLORS.textLight}
+                value={email}
+                onChangeText={setEmail}
+                keyboardType="email-address"
+                autoCapitalize="none"
+              />
+            </View>
 
           
 
