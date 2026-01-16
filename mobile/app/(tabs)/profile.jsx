@@ -94,6 +94,14 @@ const ProfileScreen = () => {
           label="Bergabung"
           value={new Date(user?.createdAt).toLocaleDateString()}
         />
+         {/* Logout Button */}
+      <TouchableOpacity
+        onPress={handleLogout}
+        style={[
+          authStyles.authButton,
+          { backgroundColor: COLORS.danger },
+        ]}
+      ></TouchableOpacity>
         );
       };
       
