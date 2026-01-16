@@ -45,4 +45,25 @@ const ProfileScreen = () => {
     );
   };
 
+  return (
+    <View style={[authStyles.container, { padding: 24 }]}>
+            {/* Avatar */}
+            <View style={{ alignItems: "center", marginBottom: 24 }}>
+              <Image
+                source={{ uri: user?.imageUrl }}
+                style={{
+                  width: 100,
+                  height: 100,
+                  borderRadius: 50,
+                  backgroundColor: COLORS.border,
+                }}
+              />
+            </View>
+          </View>
+        );
+      };
+      
+      export default ProfileScreen;
+
+
       
