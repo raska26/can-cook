@@ -7,7 +7,7 @@ const cardWidth = (width - 48) / 2;
 export const homeStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F9FAF"
+    backgroundColor: "#E0F2FE"
   },
   scrollContent: {
     paddingBottom: 32,
@@ -23,7 +23,7 @@ export const homeStyles = StyleSheet.create({
   welcomeText: {
     fontSize: 32,
     fontWeight: "800",
-    color: COLORS.text,
+    color: COLORS.textLight,
     letterSpacing: -0.5,
   },
   featuredSection: {
