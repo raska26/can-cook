@@ -28,4 +28,21 @@ const ProfileScreen = () => {
     );
   }
 
+  const handleLogout = () => {
+    Alert.alert(
+      "Logout",
+      "Apakah kamu yakin ingin keluar?",
+      [
+        { text: "Batal", style: "cancel" },
+        {
+          text: "Logout",
+          style: "destructive",
+          onPress: async () => {
+            await signOut();
+          },
+        },
+      ]
+    );
+  };
+
       
