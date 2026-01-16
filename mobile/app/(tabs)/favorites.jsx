@@ -11,7 +11,7 @@ import LoadingSpinner from "../../components/LoadingSpinner";
 
 const FavoritesScreen = () => {
   const { signOut } = useClerk();
-  const { user } = useUser();
+  const { user } = useUser(); // Mengambil informasi pengguna yang sedang login untuk kebutuhan data favorit.
   const [favoriteRecipes, setFavoriteRecipes] = useState([]);
   const [loading, setLoading] = useState(true);
 
