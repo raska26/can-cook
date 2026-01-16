@@ -1,4 +1,3 @@
-
 import { View, Text, Alert, ScrollView, TouchableOpacity } from "react-native";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { useEffect, useState } from "react";
@@ -16,7 +15,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { WebView } from "react-native-webview";
 
 const RecipeDetailScreen = () => {
-  const { id: recipeId } = useLocalSearchParams();
+  const { id: recipeId } = useLocalSearchParams(); //Menambahkan pengambilan parameter recipeId dari URL menggunakan Expo Router
   const router = useRouter();
 
   const [recipe, setRecipe] = useState(null);
